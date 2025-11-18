@@ -1,0 +1,491 @@
+/* --- Reseteo Básico y Estilos Globales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, #1e4a7f, #2d5a9f, #5b3a8f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+}
+
+/* --- Contenedores Principales --- */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 28rem; /* 448px */
+}
+
+/* --- Navegación --- */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.nav-item {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background-color: rgba(30, 58, 138, 0.4); /* bg-blue-900/40 */
+    border: 2px solid #22d3ee;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(34, 211, 238, 0.2);
+}
+
+.nav-item.active {
+    background-color: rgba(34, 211, 238, 0.4);
+    border-color: #67e8f9; /* Un poco más claro para indicar activo */
+}
+
+
+/* --- Header --- */
+.header {
+    text-align: center;
+    margin-bottom: 2rem; /* Reducido para dar espacio al aviso */
+}
+
+.header .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header svg {
+    width: 2rem; /* 32px */
+    height: 2rem; /* 32px */
+    color: #22d3ee; /* cyan-400 */
+}
+
+.header h1 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+}
+
+/* --- Pad de Control --- */
+.control-pad-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem; /* Reducido */
+}
+
+.circles-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 9999px; /* rounded-full */
+    border-width: 2px;
+}
+
+.circle-1 {
+    width: 18rem; /* 288px */
+    height: 18rem;
+    border-color: rgba(34, 211, 238, 0.3); /* border-cyan-400/30 */
+}
+
+.circle-2 {
+    width: 14rem; /* 224px */
+    height: 14rem;
+    border-color: rgba(34, 211, 238, 0.4); /* border-cyan-400/40 */
+}
+
+.circle-3 {
+    width: 10rem; /* 160px */
+    height: 10rem;
+    border-color: rgba(34, 211, 238, 0.5); /* border-cyan-400/50 */
+}
+
+.circle-center {
+    width: 6rem; /* 96px */
+    height: 6rem;
+    background-image: linear-gradient(to bottom right, rgba(6, 182, 212, 0.2), rgba(168, 85, 247, 0.2));
+    border-color: #22d3ee; /* border-cyan-400 */
+}
+
+/* --- Botones --- */
+.button-grid {
+    position: relative;
+    width: 24rem; /* 384px */
+    height: 24rem;
+}
+
+.control-button {
+    position: absolute;
+    padding: 0.75rem 1.5rem; /* px-6 py-3 */
+    border-radius: 9999px;
+    border: 2px solid #22d3ee;
+    background-color: rgba(30, 58, 138, 0.4); /* bg-blue-900/40 */
+    color: white;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-align: center;
+    /* Ajuste para que el botón no sea muy ancho para el texto */
+    min-width: 8rem; /* Asegura un ancho mínimo para los botones */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-button:hover {
+    background-color: rgba(34, 211, 238, 0.2); /* hover:bg-cyan-400/20 */
+}
+
+.control-button.active {
+    background-color: rgba(34, 211, 238, 0.4); /* bg-cyan-400/40 */
+}
+
+
+/* --- Posicionamiento de Botones --- */
+#btn-fwd-left {
+    top: 3.5rem; /* Ajustado */
+    left: 1.5rem; /* Ajustado */
+}
+#btn-fwd-left.active { transform: scale(0.95); }
+
+#btn-fwd {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+#btn-fwd.active { transform: translateX(-50%) scale(0.95); }
+
+#btn-fwd-right {
+    top: 3.5rem; /* Ajustado */
+    right: 1.5rem; /* Ajustado */
+}
+#btn-fwd-right.active { transform: scale(0.95); }
+
+#btn-turn-left {
+    top: 50%;
+    left: 0rem; /* Ajustado */
+    transform: translateY(-50%);
+}
+#btn-turn-left.active { transform: translateY(-50%) scale(0.95); }
+
+#btn-turn-right {
+    top: 50%;
+    right: 0rem; /* Ajustado */
+    transform: translateY(-50%);
+}
+#btn-turn-right.active { transform: translateY(-50%) scale(0.95); }
+
+#btn-90-left {
+    bottom: 3.5rem; /* Ajustado */
+    left: 1.5rem; /* Ajustado */
+}
+#btn-90-left.active { transform: scale(0.95); }
+
+#btn-back {
+    bottom: 0; /* Ajustado */
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+#btn-back.active { transform: translateX(-50%) scale(0.95); }
+
+#btn-90-right {
+    bottom: 3.5rem; /* Ajustado */
+    right: 1.5rem; /* Ajustado */
+}
+#btn-90-right.active { transform: scale(0.95); }
+
+
+/* --- NUEVO CÓDIGO PARA EL BOTÓN DE STOP --- */
+#btn-stop {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Estilo para que se destaque */
+    background-color: rgba(76, 29, 149, 0.4); /* Color púrpura */
+    border-width: 4px;
+    border-color: #a78bfa; /* Borde púrpura claro */
+
+    /* Mismo tamaño que el círculo central */
+    width: 6rem; 
+    height: 6rem;
+    
+    font-weight: 700;
+    font-size: 1.25rem; /* 20px */
+}
+#btn-stop.active {
+    /* Asegura que la transformación de 'active' no rompa el centrado */
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+
+/* --- CONTENEDOR DE GIROS 360 (MODIFICADO) --- */
+.spin-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* <-- Espacio entre los dos botones */
+}
+
+.spin-button {
+    position: relative; 
+    width: 8.5rem; 
+    height: 8rem;
+    border-width: 4px;
+    background-color: rgba(76, 29, 149, 0.4); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.spin-button svg {
+    width: 2.5rem; 
+    height: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.spin-button span {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.spin-button.active {
+    transform: scale(0.95);
+}
+
+/* --- Indicador de Estado y Aviso de Obstáculo --- */
+.status-indicator {
+    margin-bottom: 2rem; /* Separación */
+    text-align: center;
+}
+
+.status-indicator p {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    background-color: rgba(34, 211, 238, 0.2); /* Azul por defecto */
+    border: 1px solid #22d3ee;
+    color: #67e8f9; 
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Estilo específico para la advertencia de obstáculo */
+.status-indicator.warning p {
+    background-color: rgba(239, 68, 68, 0.2); /* Rojo/Naranja */
+    border-color: #f87171;
+    color: #fca5a5;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- Estilos para la Página de Monitoreo --- */
+.monitor-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.monitor-card {
+    background-color: rgba(30, 58, 138, 0.4); 
+    border: 2px solid #22d3ee;
+    border-radius: 1rem; 
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.monitor-card h2 {
+    font-size: 1.25rem; 
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #67e8f9; 
+}
+
+.monitor-card p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.monitor-card .current-status {
+    font-size: 1.875rem; 
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(34, 211, 238, 0.8); 
+}
+
+.command-history-list {
+    list-style: none; 
+    padding: 0;
+    max-height: 200px; 
+    overflow-y: auto; 
+    border-top: 1px solid rgba(34, 211, 238, 0.3);
+    padding-top: 1rem;
+    text-align: left; 
+}
+
+.command-history-list li {
+    background-color: rgba(34, 211, 238, 0.1);
+    border-left: 3px solid #67e8f9;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    color: #e0f2f7;
+}
+
+.command-history-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Estilos para la Página de Demos --- */
+
+/* Ajuste para que las tarjetas puedan ir una al lado de la otra */
+.monitor-section {
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 1.5rem;
+}
+
+/* Forzamos a que cada tarjeta ocupe el 50% */
+.monitor-section .monitor-card {
+    width: 50%;
+}
+
+/* Asegurarnos que en pantallas pequeñas vuelvan a ser columnas */
+@media (max-width: 768px) {
+    .monitor-section {
+        flex-direction: column;
+    }
+    .monitor-section .monitor-card {
+        width: 100%;
+    }
+}
+
+
+/* Input para el nombre de la demo */
+.demo-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #22d3ee;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+.demo-input::placeholder {
+    color: #a5f3fc;
+}
+
+/* Contenedor de botones del constructor */
+.sequence-builder-controls {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Botones pequeños para el constructor */
+.control-button-demo {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 9999px;
+    border: 1px solid #22d3ee;
+    background-color: rgba(30, 58, 138, 0.4);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.control-button-demo:hover {
+    background-color: rgba(34, 211, 238, 0.2);
+}
+
+/* Botones de guardar y limpiar */
+.demo-save-button, .demo-clear-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+}
+.demo-save-button {
+    background-color: #22d3ee;
+    border: none;
+    color: #1e4a7f;
+}
+.demo-save-button:hover {
+    background-color: #67e8f9;
+}
+.demo-clear-button {
+    background-color: transparent;
+    border: 2px solid #5b3a8f;
+    color: #a78bfa;
+}
+.demo-clear-button:hover {
+    background-color: rgba(91, 58, 143, 0.3);
+}
+
+/* Botón para ejecutar demo en la lista */
+.demo-run-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    background-color: #22d3ee;
+    color: #1e4a7f;
+    border: none;
+    cursor: pointer;
+    margin-left: 1rem;
+    font-weight: 600;
+}
+.demo-run-button:hover {
+    background-color: #67e8f9;
+}
