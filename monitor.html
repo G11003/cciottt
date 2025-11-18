@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT Rover Monitoreo</title>
+    <meta name="description" content="Monitoreo de acciones del carrito IoT">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="content-wrapper">
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-item">Control</a>
+                <a href="monitor.html" class="nav-item active">Monitoreo</a>
+                <a href="demos.html" class="nav-item">Demos</a> 
+            </nav>
+            <div class="header">
+                <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                        <path d="M2 8h10l4 5-4 5H2c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2Z"/>
+                        <path d="M7 17v-2"/>
+                        <path d="M7 10V8"/>
+                        <path d="M12 17v-2"/>
+                        <path d="M12 10V8"/>
+                    </svg>
+                </div>
+                <h1>MONITOREO DE ROVER</h1>
+            </div>
+
+            <div class="monitor-section">
+                <div class="monitor-card">
+                    <h2>Estado Actual</h2>
+                    <p>Último comando:</p>
+                    <p class="current-status" id="rover-current-command">N/A</p>
+                </div>
+
+                <div class="monitor-card">
+                    <h2>Historial de Comandos</h2>
+                    <ul class="command-history-list" id="command-history">
+                        <li>Cargando historial...</li>
+                    </ul>
+                </div>
+               <div class="monitor-card">
+                    <h2>Control de Modo</h2>
+                    <p>Cambia el modo de operación del robot.</p>
+                    <div class="sequence-builder-controls">
+                        <button class="control-button-demo" id="btn-modo-manual">MODO MANUAL</button>
+                        <button class="control-button-demo" id="btn-modo-auto">MODO AUTO</button>
+                    </div>
+                    <p>Modo actual: <span id="current-mode-display">...</span></p>
+               </div>
+                
+                </div>
+
+        </div>
+    </div>
+
+    <script src="js/monitor.js"></script> 
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT Rover Demos</title>
+    <meta name="description" content="Creación de demos para carrito IoT">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="content-wrapper">
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-item">Control</a>
+                <a href="monitor.html" class="nav-item">Monitoreo</a>
+                <a href="demos.html" class="nav-item active">Demos</a>
+            </nav>
+            
+            <div class="header">
+                <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                </div>
+                <h1>DEMOS Y SECUENCIAS</h1>
+            </div>
+
+            <div class="monitor-section">
+
+                <div class="monitor-card" id="crear-demo-card">
+                    <h2>Crear Nueva Demo</h2>
+                    
+                    <input type="text" id="demo-nombre-input" placeholder="Nombre de la demo" class="demo-input">
+                    
+                    <h3>Constructor de Secuencia:</h3>
+                    <div class="sequence-builder-controls">
+                        <button class="control-button-demo" data-command="ADELANTE">Adelante</button>
+                        <button class="control-button-demo" data-command="ATRÁS">Atrás</button>
+                        <button class="control-button-demo" data-command="VUELTA IZQUIERDA">V. Izq</button>
+                        <button class="control-button-demo" data-command="VUELTA DERECHA">V. Der</button>
+                        <button class="control-button-demo" data-command="90° IZQUIERDA">90° Izq</button>
+                        <button class="control-button-demo" data-command="90° DERECHA">90° Der</button>
+                        <button class="control-button-demo" data-command="360° IZQUIERDA">360° Izq</button>
+                        <button class="control-button-demo" data-command="360° DERECHA">360° Der</button>
+                        </div>
+
+                    <h3>Secuencia Actual:</h3>
+                    <ul class="command-history-list" id="demo-sequence-list">
+                        <li>Añade movimientos...</li>
+                    </ul>
+                    <button class="demo-save-button" id="save-demo-button">Guardar Demo</button>
+                    <button class="demo-clear-button" id="clear-demo-button">Limpiar</button>
+                </div>
+
+                <div class="monitor-card">
+                    <h2>Demos Existentes</h2>
+                    <ul class="command-history-list" id="demo-list">
+                        <li>Cargando demos...</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/demos.js"></script> 
+</body>
+</html>
